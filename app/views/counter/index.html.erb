@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Counter App</title>
+    <style>
+      /* Global Styles */
+      body {
+        font-family: 'Arial', sans-serif;
+        background: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Parent Container for Flexbox */
+      .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+      }
+
+      /* Card Styling */
+      .counter-card {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px 40px;
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .counter-card h1 {
+        font-size: 3rem;
+        margin: 20px 0;
+        color: #007bff;
+      }
+
+      .counter-card p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: #555;
+      }
+
+      /* Button Styles */
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .button {
+        flex: 1;
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      .button.reset {
+        background-color: #dc3545;
+      }
+
+      .button.reset:hover {
+        background-color: #a71d2a;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 576px) {
+        .container {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .counter-card {
+          padding: 15px 20px;
+        }
+
+        .button {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    
+      <div class="counter-card">
+        <h1>Rails Counter</h1>
+      </div>
+
+      <div class="counter-card">
+        <h1><%= session[:counter] %></h1>
+        <p>Manage your counter with the buttons below.</p>
+        <div class="button-container">
+          <%= link_to 'Increment', increment_path, class: 'button' %>
+          <%= link_to 'Decrement', decrement_path, class: 'button' %>
+          <%= link_to 'Reset', reset_path, class: 'button reset' %>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
+
